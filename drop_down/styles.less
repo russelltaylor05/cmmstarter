@@ -18,10 +18,12 @@
 @sub_menu_background_color : #000;
 @sub_menu_border_color : #000;
 
-
 // Less Styles
 @light-color: lighten(@main_color, 10%);
 @dark-color: darken(@main_color, 10%);
+@dark-color1: darken(@main_color, 20%);
+@dark-color2: darken(@main_color, 30%);
+@dark-color3: darken(@main_color, 40%);
 
 .rounded-corners (@radius: 5px) {
   -webkit-border-radius: @radius;
@@ -29,6 +31,14 @@
   -ms-border-radius: @radius;
   -o-border-radius: @radius;
   border-radius: @radius;
+}
+
+.rounded-corner (@1, @2, @3, @4) {
+  -webkit-border-radius: @1 @2 @3 @4;
+  -moz-border-radius: @1 @2 @3 @4;
+  -ms-border-radius: @1 @2 @3 @4;
+  -o-border-radius: @1 @2 @3 @4;
+  border-radius: @1 @2 @3 @4;
 }
 
 .linear-gradient (@top-color, @bottom-color) {
@@ -40,6 +50,28 @@
 	background:-ms-linear-gradient(top, @top-color 0%,@bottom-color 100%); 
 	background:linear-gradient(top, @top-color 0%,@bottom-color 100%); 
 	filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='@top-color', endColorstr='@bottom-color',GradientType=0 ); 
+}
+
+.box-shadow(@x, @y, @spread, @color) {
+	-moz-box-shadow: @x @y @spread @color;
+	-webkit-box-shadow:@x @y @spread @color;
+	box-shadow: @x @y @spread @color;
+}
+
+.box-shadow-inset(@x, @y, @spread, @color) {
+	-moz-box-shadow: inset @x @y @spread @color;
+	-webkit-box-shadow: inset @x @y @spread @color;
+	box-shadow: inset @x @y @spread @color;
+}
+.text-shadow(@x, @y, @spread, @color) {
+	-webkit-text-shadow: @x @y @spread @color;
+	-moz-text-shadow: @x @y @spread @color;
+
+}
+.clearfix() {
+  zoom: 1;
+  &:before { content: ''; display: block; }
+  &:after { content: ''; display: table; clear: both; }
 }
 
 
