@@ -57,11 +57,8 @@
 	-webkit-box-shadow: inset @x @y @spread @color;
 	box-shadow: inset @x @y @spread @color;
 }
-.text-shadow(@x, @y, @spread, @color) {
-	-webkit-text-shadow: @x @y @spread @color;
-	-moz-text-shadow: @x @y @spread @color;
+.text-shadow(@x, @y, @spread, @color) { text-shadow: @x @y @spread @color; }
 
-}
 .clearfix() {
   zoom: 1;
   &:before { content: ''; display: block; }
@@ -130,31 +127,37 @@
 /* Theme Styles */
 #cssmenu > ul  {
 	.rounded-corners(5px);
-	.linear-gradient(@main_color, @dark-color);
+	font-size: @menu_font_size;
+
+	>li>a { 
+		.linear-gradient(@main_color, @dark-color);
+
+		&:link, &:visited { color: @menu_text_color; } 
+		&:hover, &:active { color: @menu_text_hover_color; } 
+	}
 }
 
 #cssmenu > ul li {
 	color: #000;
-	border: 1px solid #000;
+	border: 1px solid @menu_border_color;
 }
 #cssmenu > ul li li {
 	background-color: @main_color;
-	border: 1px solid #ccc;
+	border: 1px solid @sub_menu_border_color;
+	font-size: @sub_menu_font_size;
 }
 
-#cssmenu > ul li.hover,
-#cssmenu > ul li:hover {
+#cssmenu > ul li.hover a,
+#cssmenu > ul li:hover a {
 	background-color: #eee;
 	color: #000;
 }
 
 #cssmenu a { display: inline-block; padding: 7px 20px; }
-#cssmenu > ul a:link,
-#cssmenu > ul a:visited	{ color: #000; text-decoration: none; }
-#cssmenu > ul a:hover		{ color: #000; }
-#cssmenu > ul a:active	{ color: #ffa500; }
+#cssmenu > ul a:link, #cssmenu > ul a:visited	{ color: @sub_menu_text_color; text-decoration: none; }
+#cssmenu > ul a:hover, #cssmenu > ul a:active	{ color: @sub_menu_text_hover_color; }
 
 #cssmenu > ul ul {
-	width: 150px;
+	width: @sub_menu_width;
 	margin-top: 1px;
 }
