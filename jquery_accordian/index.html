@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" class="devsite">
+<head>
+  <link rel="stylesheet/less" href="styles.less" type="text/css" />
+	<script src="less.js" type="text/javascript"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+	$('#cssmenu ul ul').hide();
+		//$('#cssmenu ul ul:first').show();
+		$('#cssmenu li a').click(function() {
+			var checkElement = $(this).next();
+			if((checkElement.is('ul')) && (checkElement.is(':visible'))) {
+			return false;
+		}
+		if((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
+			$('#cssmenu ul ul:visible').slideUp('normal');
+			checkElement.slideDown('normal');
+			return false;
+		}
+	});
+
+	});
+	</script>
+</head>
+<body>
+
+	<div id='cssmenu'>
+	<ul>
+	   <li class='active'><a href='#'><span>Home</span></a></li>
+	   <li class='has-sub'><a href='#'><span>Products</span></a>
+	      <ul>
+	         <li class='has-sub'><a href='#'><span>Product 1</span></a></li>
+					 <li class='has-sub'><a href='#'><span>Another Product that is a alot longer than the first</span></a>
+	      </ul>
+	   </li>
+	   <li><a href='#'><span>About</span></a></li>
+	   <li class='has-sub last'><a href='#'><span>Contact</span></a>
+	      <ul>
+	         <li class='has-sub'><a href='#'><span>Product 2</span></a></li>
+	      </ul>
+	   </li>
+	</ul>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+@charset "UTF-8";
+// Menu Maker Variables = [[tag:default_value]]
+// EX: @main_color : [[main_color:#f6f6f6]];
+// EX: @sub_menu_width : [[sub_menu_width:200px]];
+
+@main_color :  #f6f6f6;
+@menu_width : auto;
+@menu_align : left;
+@menu_font_size : 12px;
+@menu_text_color : #000;
+@menu_text_hover_color : #000;
+@menu_background_color : #000;
+@menu_border_color : #000;
+@sub_menu_width : 200px;
+@sub_menu_font_size : 12px;
+@sub_menu_text_color : #000;
+@sub_menu_text_hover_color : #000;
+@sub_menu_background_color : #000;
+@sub_menu_border_color : #000;
+
+// Less Styles
+@light-color: lighten(@main_color, 10%);
+@dark-color: darken(@main_color, 10%);
+@dark-color1: darken(@main_color, 20%);
+@dark-color2: darken(@main_color, 30%);
+@dark-color3: darken(@main_color, 40%);
+
+.rounded-corners (@radius: 5px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+.rounded-corner (@1, @2, @3, @4) {
+  -webkit-border-radius: @1 @2 @3 @4;
+  -moz-border-radius: @1 @2 @3 @4;
+  border-radius: @1 @2 @3 @4;
+}
+
+.linear-gradient (@top-color, @bottom-color) {
+	background: @top-color; 
+	background:-moz-linear-gradient(@top-color 0%, @bottom-color 100%); 
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,@top-color), color-stop(100%,@bottom-color)); 
+	background:-webkit-linear-gradient(@top-color 0%,@bottom-color 100%);  
+	background:linear-gradient(@top-color 0%,@bottom-color 100%); 
+	filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr='@{top-color}', endColorstr='@{bottom-color}', GradientType=0)";
+}
+
+.box-shadow(@x, @y, @spread, @color) {
+	-moz-box-shadow: @x @y @spread @color;
+	-webkit-box-shadow:@x @y @spread @color;
+	box-shadow: @x @y @spread @color;
+}
+
+.box-shadow-inset(@x, @y, @spread, @color) {
+	-moz-box-shadow: inset @x @y @spread @color;
+	-webkit-box-shadow: inset @x @y @spread @color;
+	box-shadow: inset @x @y @spread @color;
+}
+.text-shadow(@x, @y, @spread, @color) { text-shadow: @x @y @spread @color; }
+
+.clearfix() {
+  zoom: 1;
+  &:before { content: ''; display: block; }
+  &:after { content: ''; display: table; clear: both; }
+}
+
+
+/* Base Styles */
+#cssmenu ul,
+#cssmenu li,
+#cssmenu a {margin: 0; padding: 0; border: none; list-style: none;}
+
+#cssmenu {
+    list-style: none;
+    padding: 0 0 0 0;
+    width: 170px;
+}
+
+#cssmenu > ul > li {
+    display: block;
+    background-color: #FF9927;
+    font-weight: bold;
+    margin: 1px;
+    cursor: pointer;
+}
+#cssmenu > ul > li > a  {
+	display: block;
+	padding: 5px;
+}
+#cssmenu ul ul {
+	background: #fff;
+  padding: 0;
+}
+#cssmenu ul ul{
+    display: none;
+}
+#cssmenu ul ul li {
+    font-weight: normal;
+    padding: 5px;
+		
+}
+#cssmenu a {
+    text-decoration: none;
+}
+#cssmenu a:hover {
+    text-decoration: underline;
+}
