@@ -5,7 +5,6 @@
 
 @main_color :  #f6f6f6;
 @menu_width : auto;
-@menu_align : left;
 @menu_font_size : 12px;
 @menu_text_color : #000;
 @menu_text_hover_color : #000;
@@ -128,6 +127,7 @@
 #cssmenu > ul  {
 	.rounded-corners(5px);
 	font-size: @menu_font_size;
+	width: @menu_width;
 
 	>li>a { 
 		.linear-gradient(@main_color, @dark-color);
